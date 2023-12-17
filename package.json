@@ -1,0 +1,10 @@
+{
+  "name": "buymeaspezi",
+  "version": "1.0.0",
+  "scripts": {
+    "tailwind": "tailwindcss -i src/main/resources/css/app.css -o src/main/resources/web/app/css/_output.css"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
