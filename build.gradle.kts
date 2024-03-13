@@ -7,6 +7,7 @@ plugins {
 repositories {
     mavenCentral()
     mavenLocal()
+    maven("https://repo.mvnpm.org/maven2")
 }
 
 val quarkusPlatformGroupId: String by project
@@ -14,7 +15,6 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
-    implementation("io.quarkiverse.renarde:quarkus-renarde:3.0.5")
     implementation("io.quarkus:quarkus-resteasy-reactive-qute")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-kotlin")
@@ -22,10 +22,12 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-resteasy-reactive")
+    implementation("org.jetbrains.kotlinx:kotlinx-html:0.11.0")
     // Web dependencies
     implementation("io.quarkiverse.web-bundler:quarkus-web-bundler:1.1.3")
     implementation("org.mvnpm:htmx.org:1.9.6")
     implementation("org.mvnpm:hyperscript.org:0.9.8")
+    implementation("org.mvnpm:iconify-icon:2.0.0")
     // Test dependencies
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
@@ -40,7 +42,7 @@ java {
 }
 
 task<Exec>("tailwind") {
-    inputs.dir("src/main/resources/templates/")
+    inputs.dir("src/main/kotlin/de/keyruu/")
     outputs.file("src/main/resources/web/app/css/_output.css")
 
     commandLine = listOf("bash", "-c", "npm run tailwind")
@@ -60,3 +62,4 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
     kotlinOptions.jvmTarget = JavaVersion.VERSION_21.toString()
     kotlinOptions.javaParameters = true
 }
+
