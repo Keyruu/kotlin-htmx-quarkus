@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
-    kotlin("plugin.allopen") version "1.9.21"
+    kotlin("jvm") version "1.9.23"
+    kotlin("plugin.allopen") version "1.9.23"
     id("io.quarkus")
 }
 
@@ -15,19 +15,19 @@ val quarkusPlatformArtifactId: String by project
 val quarkusPlatformVersion: String by project
 
 dependencies {
-    implementation("io.quarkus:quarkus-resteasy-reactive-qute")
     implementation(enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}"))
     implementation("io.quarkus:quarkus-kotlin")
     implementation("io.quarkus:quarkus-resteasy-reactive-jackson")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     implementation("io.quarkus:quarkus-arc")
     implementation("io.quarkus:quarkus-resteasy-reactive")
+    implementation("io.quarkus:quarkus-scheduler")
     implementation("org.jetbrains.kotlinx:kotlinx-html:0.11.0")
+    implementation("se.michaelthelin.spotify:spotify-web-api-java:8.3.6")
     // Web dependencies
-    implementation("io.quarkiverse.web-bundler:quarkus-web-bundler:1.1.3")
-    implementation("org.mvnpm:htmx.org:1.9.6")
-    implementation("org.mvnpm:hyperscript.org:0.9.8")
-    implementation("org.mvnpm:iconify-icon:2.0.0")
+    implementation("io.quarkiverse.web-bundler:quarkus-web-bundler:1.4.0")
+    implementation("org.mvnpm:htmx.org:1.9.11")
+    implementation("org.mvnpm:alpinejs:3.13.7")
     // Test dependencies
     testImplementation("io.quarkus:quarkus-junit5")
     testImplementation("io.rest-assured:rest-assured")
